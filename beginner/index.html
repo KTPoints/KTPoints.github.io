@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue/Bulma Intro</title>
+  <!-- Include Vue and Bulma -->
+  <!-- Comment out this stylesheet line to see what the default page without bulma classes would've looked like -->
+  <!-- make sure to hard-refresh (ctrl/cmd + shift + r) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+
+<body>
+  <!-- Divide different areas into the page into sections -->
+  <!-- Hero produces a 'hero' section -->
+  <!-- is-medium is the size of the section -->
+  <!-- is-primary is color (other examples include is-info is-danger is-warning is-dark) -->
+  <!-- is-bold adds a subtle gradient -->
+  <!-- All of these classes are bulma. 
+      Using Bulma classes makes styling easy and 
+      it looks good across all platforms -->
+  <!-- the id = 'example' is how Vue knows which element to attach to -->
+  <section id='example' class="hero is-medium is-primary is-bold">
+    <!-- The hero body contains Hello World and My Name Is-->
+      <div class="hero-body">
+        <div class="container">
+          <!-- we can add classes too -->
+          <!-- if isCenter is true, then has-text-centered will be added as a class -->
+          <h1 class="title" v-bind:class="{ 'has-text-centered': isCenter }">
+            Hello World
+          </h1>
+          <!-- This {{stuff}} is special Vue syntax -->
+          <!-- We can display variables from data here -->
+          <!-- It can also evaluate javascript expressions. {{2 + 2}} would display 4 on the page, for example -->
+          <h2 class="subtitle" v-bind:class="{ 'has-text-centered': isCenter }">
+            {{text}}
+          </h2>
+          </div>
+      </div>
+
+      <!-- has-addons allows the search box and buttons to be side by side -->
+      <!-- has-addons-centered makes them centered -->
+      <div class="field has-addons has-addons-centered">
+          <div class="control">
+            <!-- v-model tells the input what variable should change whenever we update the text box -->
+            <!-- v-on:keyup.enter="changeText": Whenever we hit enter, run the method changeText -->
+            <!-- class input makes a pretty bulma input (get rid of it see the difference) -->
+            <input v-model='input' v-on:keyup.enter="changeText" class="input is-dark" type="text" placeholder="Enter your name">
+          </div>
+          <div class="control">
+            <!-- v-on:click="changeText" Whenever we click the button, run the method changeText -->
+            <button v-on:click="changeText" class="button is-dark">Change Text</button>
+          </div>
+          <div class="control">
+            <button v-on:click="centerText" class="button is-info">Toggle Center Text</button>
+          </div>
+      </div>
+
+  </section>
+
+  <!-- import our script. We do this after so that the page has loaded in before Vue sets in -->
+  <script src="example.js"></script>
+  
+</body>
+</html>
