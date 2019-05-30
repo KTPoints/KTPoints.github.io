@@ -20,6 +20,7 @@ let example = new Vue({
     },
 
     centerText: function(){
+      // toggle
       this.isCenter = !this.isCenter;
     }
   },

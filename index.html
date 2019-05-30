@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>KTPoints</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+
+<body>
+
+  <section id='authenticate' class="hero is-fullheight">
+    <div class="columns is-centered">
+      <div class="column is-narrow">
+        <div class="level">
+          <div class="level-item has-text-centered">
+            <img src="./static/images/ktpLogo.png" alt="KTP Logo">
+          </div>
+        </div>
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input v-model='uniqname' class="input is-primary" type="email" placeholder="Michigan Email">
+            </div>
+            <div class="control">
+              <button class="button is-static">
+                @umich.edu
+              </button>
+            </div>
+          </div> 
+
+          <div class="field">
+            <div class="control">
+              <input v-model='password' class="input is-primary" type="password" placeholder="Password">
+            </div>
+          </div> 
+
+          <div class='field' v-show="button_index">
+            <div class="field is-grouped">
+              <div class="control is-expanded">
+                <input v-model='payload.firstname' class="input is-primary" type="text" placeholder="First Name">
+              </div>   
+   
+              <div class="control is-expanded">
+                <input v-model='payload.lastname' class="input is-primary" type="text" placeholder="Last Name">
+              </div> 
+            </div>
+
+            <div class="field is-grouped">
+
+            <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select v-model='payload.standing'>
+                    <option value="">KTP Standing</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                    <option>Pledge</option>
+                    <option>Rushee</option>
+                  </select>
+                </div>        
+            </div>    
+
+            <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select v-model='payload.year'>
+                    <option value="">Class Standing</option>
+                    <option>Freshman</option>
+                    <option>Sophomore</option>
+                    <option>Junior</option>
+                    <option>Senior</option>
+                  </select>
+                </div>        
+            </div>
+
+            <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select v-model='payload.pledge_class' :disabled='disablePledgeClass'>
+                    <option value="" >Pledge Class</option>
+                    <option>Kappa</option>
+                    <option>Lambda</option>
+                    <option>Mu</option>
+                    <option>Nu</option>
+                    <option>Xi</option>
+                    <option>Omicron</option>
+                  </select>
+                </div>        
+            </div>
+
+          </div>
+
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <button v-on:click="authenticate" class="button is-primary is-fullwidth">{{button_name[button_index]}}</button>
+            </div>
+          </div>
+          <a v-on:click='toggleButton'>{{link_name[button_index]}}</a>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>  
+
+  <script src="authenticate.js"></script>
+
+  <script>
+      // TODO: Replace the following with your app's Firebase project configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCc4W4annW8hstY99LCBC1IlEyXETrdapE",
+        authDomain: "ktpoints-68071.firebaseapp.com",
+        databaseURL: "https://ktpoints-68071.firebaseio.com",
+        projectId: "ktpoints-68071",
+        storageBucket: "ktpoints-68071.appspot.com",
+        messagingSenderId: "187794219081",
+        appId: "1:187794219081:web:927feb9090d04768"
+      };
+  
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+  </script>  
+</body>
+
+</html>
