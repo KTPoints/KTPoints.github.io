@@ -1,5 +1,6 @@
 # KTPoints.github.io
 Vue/Bulma based KTPoints Progressive Web App
+https://ktpoints.github.io
 
 ## Setup Instructions
 `git clone https://github.com/KTPoints/KTPoints.github.io.git`
