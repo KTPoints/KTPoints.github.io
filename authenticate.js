@@ -89,7 +89,7 @@ let authenticate = new Vue({
     'payload.standing': function(){
       if (this.payload.standing == 'Rushee'){
         this.disablePledgeClass = true;
-        this.payload.pledge_class = 'Rushee';
+        this.payload.pledge_class = '';
       }
       else{
         this.disablePledgeClass = false;
