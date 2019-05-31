@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>KTPoints</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="static/css/bulma.css">
+  <link rel="stylesheet" href="static/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 </head>
@@ -79,13 +79,14 @@
             <div class="control is-expanded">
                 <div class="select is-fullwidth">
                   <select v-model='payload.pledge_class' :disabled='disablePledgeClass'>
-                    <option value="" >Pledge Class</option>
+                    <option value="">Pledge Class</option>
                     <option>Kappa</option>
                     <option>Lambda</option>
                     <option>Mu</option>
                     <option>Nu</option>
                     <option>Xi</option>
                     <option>Omicron</option>
+                    <option>Pi</option>
                   </select>
                 </div>        
             </div>
@@ -113,7 +114,8 @@
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>  
 
-  <script src="authenticate.js"></script>
+  <!-- Vue Script(s) -->
+  <script src="pages/authenticate.js"></script>
 
   <script>
       // TODO: Replace the following with your app's Firebase project configuration
