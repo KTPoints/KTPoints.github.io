@@ -18,7 +18,7 @@
     <div class="columns is-centered">
       <div class="column is-narrow">
         <div class="level">
-          <div class="level-item has-text-centered">
+          <div class="mt4 level-item has-text-centered">
             <img src="./static/images/ktpLogo.png" alt="KTP Logo">
           </div>
         </div>
@@ -95,9 +95,11 @@
 
           </div>
 
-          <div class="field">
+          <div class="field mt4 mb4">
             <div class="control">
-              <button v-on:click="authenticate" class="button is-primary is-fullwidth">{{button_name[button_index]}}</button>
+              <button v-on:click="authenticate" class="button is-large is-rounded button-background is-fullwidth">
+                {{button_name[button_index]}}
+              </button>
             </div>
           </div>
           <a v-on:click='toggleButton'>{{link_name[button_index]}}</a>
