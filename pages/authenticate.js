@@ -5,7 +5,7 @@ let authenticate = new Vue({
     password: '',
     loggedin: false,
     button_name: ['Sign in', 'Sign up'],
-    link_name: ["Don't have an account?", "Have an account?"],
+    link_name: ["Sign up now!", "Have an account?"],
     button_index: 0,
     payload: {
       major: "",
